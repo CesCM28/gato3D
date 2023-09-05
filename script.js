@@ -1,14 +1,36 @@
-var fichas = document.querySelectorAll(".ficha");
+var fichas1 = document.querySelectorAll(".player1");
+var fichas2 = document.querySelectorAll(".player2");
 const cajas = document.querySelectorAll(".caja");
 var fichaSlect;
 var ban = true;
+var turno1 = true;
 
-fichas.forEach(ficha => {
+fichas1.forEach(ficha => {
     ficha.addEventListener("click", () => {
-        if (ban){
-            ban = false;
-            ficha.style.border = "solid 1px white";
-            fichaSlect = ficha;
+        if (turno1){
+            if (ban){
+                ban = false;
+                turno1 = false;
+                ficha.style.border = "solid 1px white";
+                fichaSlect = ficha;
+            }
+        } else {
+            alert("Turno del Azul!!")
+        }
+    });
+});
+
+fichas2.forEach(ficha => {
+    ficha.addEventListener("click", () => {
+        if (!turno1){
+            if (ban){
+                ban = false;
+                turno1 = true;
+                ficha.style.border = "solid 1px white";
+                fichaSlect = ficha;
+            }
+        } else {
+            alert("Turno del Rojo!!")
         }
     });
 });
