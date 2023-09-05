@@ -1,0 +1,67 @@
+:root {
+    --tam-chico: 10px;
+    --tam-mediano: 15px;
+    --tam-grande: 20px;
+    --tam-rad-chico: 5px;
+    --tam-rad-mediano: 10px;
+    --tam-rad-grande: 15px;
+}
+
+body {
+    background-color: black;
+}
+
+.caja {
+    background-color: wheat;
+    margin: 2px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ren {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.conteiner {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+/*fichas*/
+.players {
+    margin: 10px;
+}
+
+.player1 {
+    background-color: red;
+    border: solid 1px black;
+}
+
+.player2 {
+    background-color: blue;
+    border: solid 1px black;
+}
+
+.chica {
+    width: var(--tam-chico);
+    height: var(--tam-chico);
+    border-radius: var(--tam-rad-chico);
+}
+
+.mediana {
+    width: var(--tam-mediano);
+    height: var(--tam-mediano);
+    border-radius: var(--tam-rad-mediano);
+}
+
+.grande {
+    width: var(--tam-grande);
+    height: var(--tam-grande);
+    border-radius: var(--tam-rad-grande);
+}
