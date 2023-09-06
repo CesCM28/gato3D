@@ -1,6 +1,6 @@
 var fichas1 = document.querySelectorAll(".player1");
 var fichas2 = document.querySelectorAll(".player2");
-const cajas = document.querySelectorAll(".caja");
+var cajas = document.querySelectorAll(".caja");
 var fichaSlect;
 var ban = true;
 var turno1 = true;
@@ -12,6 +12,7 @@ fichas1.forEach(ficha => {
                 ban = false;
                 turno1 = false;
                 ficha.style.border = "solid 1px white";
+                
                 fichaSlect = ficha;
             }
         } else {
@@ -36,11 +37,29 @@ fichas2.forEach(ficha => {
 });
 
 cajas.forEach(caja => {
-    caja.addEventListener("click", () => {
+    caja.addEventListener("click", (c) => {
         if (!ban){
-            fichaSlect.style.border = "solid 1px black";
-            caja.appendChild(fichaSlect);
-            ban = true;
+            console.log(caja);
+            console.log(c);
+            if (c.lastChild != null) {
+                if (fichaSlect.classList.contains("chica")){
+                    alert("no puedes perro, es el que prestas. ya esta ocupada la casilla!!");
+                } else if (fichaSlect.classList.contains("mediana") && c.lastChild.classList.contains("mediana") && c.lastChild.classList.contains("grande")) {
+                    alert("esta ocupada la casilla, padrino!!");
+                } else if (fichaSlect.classList.contains("grande") && c.lastChild.classList.contains("grande")){
+                    alert("estas ciego, esta ocupada, papí!!");
+                } else {
+                    fichaSlect.style.border = "solid 1px black";
+                    caja.appendChild(fichaSlect);
+                    fichaSlect.style.position = "absolute";
+                    ban = true;
+                }
+            } else {        
+                fichaSlect.style.border = "solid 1px black";
+                caja.appendChild(fichaSlect);
+                fichaSlect.style.position = "absolute";
+                ban = true;
+            }
         }
     });
 });
